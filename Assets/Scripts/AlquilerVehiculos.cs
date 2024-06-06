@@ -9,7 +9,7 @@ public class AlquilerVehiculos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ResetearVehiculos();
+        ResetearVehiculosStart();
         float promedio = 0;
         for (int i = 0; i < vehiculos.Length; i++)
         {
@@ -30,7 +30,7 @@ public class AlquilerVehiculos : MonoBehaviour
         }   
     }
 
-    void ResetearVehiculos()
+    void ResetearVehiculosStart()
     {
         for (int i = 0; i<vehiculos.Length; i++)
         {
@@ -38,6 +38,13 @@ public class AlquilerVehiculos : MonoBehaviour
             {
                 vehiculos[i].CartelPromo.SetActive(false);
             }
+        }
+    }
+    void ResetearVehiculos()
+    {
+        foreach (Vehiculo vehiculo in vehiculos)
+        {
+            vehiculo.CartelPromo.SetActive(false);
         }
     }
 }
