@@ -10,6 +10,13 @@ public class AlquilerVehiculos : MonoBehaviour
     void Start()
     {
         ResetearVehiculos();
+        float promedio = 0;
+        for (int i = 0; i < vehiculos.Length; i++)
+        {
+            Vehiculo vehiculo = vehiculos[i];
+            promedio += vehiculo.precioAlquiler;
+        }
+        Debug.Log(promedio / vehiculos.Length);
     }
 
     // Update is called once per frame
@@ -17,7 +24,9 @@ public class AlquilerVehiculos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-
+            ResetearVehiculos();
+            int numAleatoreo = Random.Range(0, vehiculos.Length);
+            vehiculos[numAleatoreo].CartelPromo.gameObject.SetActive(true);
         }   
     }
 
